@@ -1,12 +1,26 @@
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
-import { Navbar, NavbarBrand } from 'reactstrap';
-import Menu from './components/MenuComponent';
+import StaffList from './components/StaffListComponent';
+import {STAFFS} from './shared/staffs';
 
 class App extends Component {
-  render() {
+  constructor(props){
+    super(props);
+    this.state = {
+      staffs : STAFFS,
+    };
+  }
+
+  render(){
     return (
-      <Menu />
+      <div className='App'>
+        <div>
+          <div className='Header'>
+            <h3 className='heading'>Ứng dụng quản lý nhân sự v1.0</h3>
+          </div>
+        </div>
+        <StaffList staffs={this.state.staffs}/>
+      </div>
     );
   }
 }
