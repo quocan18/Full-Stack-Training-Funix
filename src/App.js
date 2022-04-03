@@ -1,25 +1,26 @@
-import React, {Component} from 'react';
-import './App.css';
-import StaffList from './components/StaffListComponent';
-import {STAFFS} from './shared/staffs';
+import React, { Component } from "react";
+import "./App.css";
+import StaffListComponent from "./components/StaffListComponent";
+import { STAFFS } from "./shared/staffs";
+import { Navbar, NavbarBrand } from "reactstrap";
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      staffs : STAFFS,
+      staffs: STAFFS,
     };
   }
 
-  render(){
+  render() {
     return (
-      <div className='App'>
-        <div>
-          <div className='Header'>
-            <h3 className='heading'>Ứng dụng quản lý nhân sự v1.0</h3>
+      <div className="App">
+        <Navbar dark color="primary">
+          <div className="container">
+            <NavbarBrand href="/">Ứng dụng quản lý nhân sự v1.0</NavbarBrand>
           </div>
-        </div>
-        <StaffList staffs={this.state.staffs}/>
+        </Navbar>
+        <StaffListComponent staffs={this.state.staffs} />
       </div>
     );
   }
